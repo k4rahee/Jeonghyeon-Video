@@ -786,7 +786,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
           <div class="role">Video Editor — Seoul, KR</div>
         </div>
         <div class="row"><span>Discord</span><button class="mo-act copy-contact" type="button" data-copy="jxxnghusl">ID 복사</button></div>
-        <div class="row"><span>Email</span><a class="mo-act" href="mailto:flvm0530@naver.com?subject=%EC%98%81%EC%83%81%20%EC%9D%98%EB%A2%B0%20%EB%AC%B8%EC%9D%98">메일 작성</a></div>
+        <div class="row"><span>Email</span><button class="mo-act copy-contact" type="button" data-copy="flvm0530@naver.com" data-toast="메일 주소가 복사됐어요">주소 복사</button></div>
         <div class="row"><span>X</span><a class="mo-act" href="https://x.com/c_si0n" target="_blank" rel="noopener">문의 이동</a></div>
       </div>
       <a href="#contact" class="mo-cta" data-cl>
@@ -798,7 +798,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
   <div class="mo-bot">
     <span>© 2026 정현® · 영상 편집 커미션</span>
     <div class="so">
-      <button class="copy-contact" type="button" data-copy="jxxnghusl">Discord ID 복사</button><span class="dot">·</span><a href="mailto:flvm0530@naver.com?subject=%EC%98%81%EC%83%81%20%EC%9D%98%EB%A2%B0%20%EB%AC%B8%EC%9D%98">Email</a>
+      <button class="copy-contact" type="button" data-copy="jxxnghusl">Discord ID 복사</button><span class="dot">·</span><button class="copy-contact" type="button" data-copy="flvm0530@naver.com" data-toast="메일 주소가 복사됐어요">Email 복사</button>
     </div>
   </div>
 </div>
@@ -1118,11 +1118,11 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
         <span class="cm-k">Discord</span>
         <strong>ID 복사하기</strong>
       </button>
-      <a class="contact-btn" href="mailto:flvm0530@naver.com?subject=%EC%98%81%EC%83%81%20%EC%9D%98%EB%A2%B0%20%EB%AC%B8%EC%9D%98">
+      <button class="contact-btn copy-contact" type="button" data-copy="flvm0530@naver.com" data-toast="메일 주소가 복사됐어요">
         <span class="cm-ico" aria-hidden="true">✉️</span>
         <span class="cm-k">Email</span>
-        <strong>메일로 보내기</strong>
-      </a>
+        <strong>메일 주소 복사하기</strong>
+      </button>
       <a class="contact-btn" href="https://x.com/c_si0n" target="_blank" rel="noopener">
         <span class="cm-ico" aria-hidden="true">𝕏</span>
         <span class="cm-k">X</span>
@@ -1159,7 +1159,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
       <h4>의뢰 / 연락</h4>
       <ul>
         <li><button class="ft-link copy-contact" type="button" data-copy="jxxnghusl">Discord ID 복사</button></li>
-        <li><a href="mailto:flvm0530@naver.com?subject=%EC%98%81%EC%83%81%20%EC%9D%98%EB%A2%B0%20%EB%AC%B8%EC%9D%98">메일로 의뢰 보내기</a></li>
+        <li><button class="ft-link copy-contact" type="button" data-copy="flvm0530@naver.com" data-toast="메일 주소가 복사됐어요">메일 주소 복사</button></li>
         <li><a href="https://x.com/c_si0n" target="_blank" rel="noopener">X로 문의하기</a></li>
       </ul>
     </div>
@@ -1405,7 +1405,7 @@ if (cpBtn && cpContent) {
 document.querySelectorAll('.copy-contact').forEach(function(btn){
   btn.addEventListener('click', function(){
     var value = btn.getAttribute('data-copy') || '';
-    var done = function(){ toast('Discord ID가 복사됐어요'); };
+    var done = function(){ toast(btn.getAttribute('data-toast') || 'Discord ID가 복사됐어요'); };
     if (navigator.clipboard) {
       navigator.clipboard.writeText(value).then(done).catch(function(){ toast('복사 실패. 직접 선택해 주세요'); });
     } else {
